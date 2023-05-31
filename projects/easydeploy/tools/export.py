@@ -31,7 +31,7 @@ def parse_args():
         '--img-size',
         nargs='+',
         type=int,
-        default=[640, 640],
+        default=[1280, 1280],
         help='Image size of height and width')
     parser.add_argument('--batch-size', type=int, default=1, help='Batch size')
     parser.add_argument(
@@ -106,13 +106,38 @@ def main():
     save_onnx_path = os.path.join(args.work_dir, 'end2end.onnx')
     # export onnx
     with BytesIO() as f:
+
+        dynamic_axes = {
+            "images":{
+                0:'batch',
+                2:'height',
+                3:'width'
+            },
+            'num_dets':{
+                0:'batch',
+                1:'num_dets',
+            },
+            'boxes':{
+                0:'batch',
+                1:'num_dets',
+            },
+            'scores':{
+                0:'batch',
+                1:'num_dets',
+            },
+            'labels':{
+                0:'batch',
+                1:'num_dets',
+            }
+        }
         torch.onnx.export(
             deploy_model,
             fake_input,
             f,
             input_names=['images'],
             output_names=output_names,
-            opset_version=args.opset)
+            opset_version=args.opset,
+            dynamic_axes=dynamic_axes)
         f.seek(0)
         onnx_model = onnx.load(f)
         onnx.checker.check_model(onnx_model)

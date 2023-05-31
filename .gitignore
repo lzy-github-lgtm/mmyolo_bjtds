@@ -1,6 +1,10 @@
 dataset_analysis/
 src/
 datasets/
+
+*.zip
+*.onnx
+/datasets
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
