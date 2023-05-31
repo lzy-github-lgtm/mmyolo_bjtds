@@ -42,7 +42,7 @@ test_ann_file = 'annotations/test.json'
 test_data_prefix = 'images/'  # Prefix of val image path
 
 # Batch size of a single GPU during training
-train_batch_size_per_gpu = 1
+train_batch_size_per_gpu = 3
 # Worker to pre-fetch data for each single GPU during training
 train_num_workers = 2 * train_batch_size_per_gpu
 # persistent_workers must be False if num_workers is 0
@@ -155,8 +155,8 @@ model = dict(
 # -----data related-----
 # Dataset type, this will be used to define the dataset
 dataset_type = 'YOLOv5CocoDataset'
-classes = ['AirOutletBlocker', 'AntirollTorsionBar', 'Arm', 'AutoPassing', 'Axle', 'Baffle', 'BoltHead', 'BoltNut', 'Boot', 'BrakeClamp', 'BrakeCylinder', 'BrakePad', 'Clip', 'CotterPin', 'Coupling', 'EndSheet', 'GearCase', 'Grinder', 'GroundingDevice', 'LateralDamper', 'LateralStop', 'LockSpring', 'LockingWire', 'MagneticBoltHolder', 'Mirror', 'Nameplate', 'Nozzle', 'OilLevelMirror', 'OilPlugB', 'OilPlugS', 'ParkingBrakeCylinder', 'PipeJoint', 'Putty', 'RadiatingRib', 'Rubber', 'Sander', 'SingleLockingWire', 'StoneSweeper', 'TractionRod', 'WheelTread', 'WholeCotterPin', 'abnormal_Feather', 'crack', 'lost_BoltHead', 'lost_OilPlugS', 'lost_Putty']
-classses = [
+# classes = ['AirOutletBlocker', 'AntirollTorsionBar', 'Arm', 'AutoPassing', 'Axle', 'Baffle', 'BoltHead', 'BoltNut', 'Boot', 'BrakeClamp', 'BrakeCylinder', 'BrakePad', 'Clip', 'CotterPin', 'Coupling', 'EndSheet', 'GearCase', 'Grinder', 'GroundingDevice', 'LateralDamper', 'LateralStop', 'LockSpring', 'LockingWire', 'MagneticBoltHolder', 'Mirror', 'Nameplate', 'Nozzle', 'OilLevelMirror', 'OilPlugB', 'OilPlugS', 'ParkingBrakeCylinder', 'PipeJoint', 'Putty', 'RadiatingRib', 'Rubber', 'Sander', 'SingleLockingWire', 'StoneSweeper', 'TractionRod', 'WheelTread', 'WholeCotterPin', 'abnormal_Feather', 'crack', 'lost_BoltHead', 'lost_OilPlugS', 'lost_Putty']
+classes = [
 'OilPlugS',
 'BoltHead',
 'BoltNut',
