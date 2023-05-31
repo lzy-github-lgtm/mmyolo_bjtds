@@ -1,4 +1,6 @@
-/datasets
+dataset_analysis/
+src/
+datasets/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
