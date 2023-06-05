@@ -30,7 +30,7 @@ img_scale = (1280, 1280)  # width, height
 affine_scale = 0.9      # YOLOv5RandomAffine scaling ratio
 mixup_prob = 0.1
 # -----data path-----
-data_root = 'datasets/'# Root path of data
+data_root = 'datasets/380-0603/'# Root path of data
 # Path of train annotation file
 train_ann_file = 'annotations/trainval.json'
 train_data_prefix = 'images/'  # Prefix of train image path
@@ -156,33 +156,39 @@ model = dict(
 # Dataset type, this will be used to define the dataset
 dataset_type = 'YOLOv5CocoDataset'
 # classes = ['AirOutletBlocker', 'AntirollTorsionBar', 'Arm', 'AutoPassing', 'Axle', 'Baffle', 'BoltHead', 'BoltNut', 'Boot', 'BrakeClamp', 'BrakeCylinder', 'BrakePad', 'Clip', 'CotterPin', 'Coupling', 'EndSheet', 'GearCase', 'Grinder', 'GroundingDevice', 'LateralDamper', 'LateralStop', 'LockSpring', 'LockingWire', 'MagneticBoltHolder', 'Mirror', 'Nameplate', 'Nozzle', 'OilLevelMirror', 'OilPlugB', 'OilPlugS', 'ParkingBrakeCylinder', 'PipeJoint', 'Putty', 'RadiatingRib', 'Rubber', 'Sander', 'SingleLockingWire', 'StoneSweeper', 'TractionRod', 'WheelTread', 'WholeCotterPin', 'abnormal_Feather', 'crack', 'lost_BoltHead', 'lost_OilPlugS', 'lost_Putty']
-classes = [
-'OilPlugS',
-'BoltHead',
-'BoltNut',
-'WholeCotterPin',
-'Coupling',
-'LockingWire',
-'BrakeCylinder',
-'Boot',
-'WheelTread',
-'CotterPin',
-'BrakePad',
-'BrakeClamp',
-'TailCotterPin',
-'OilLevelMirror',
-'SingleLockingWire',
-'Mirror',
-'OilPlugB',
-'Putty',
-'Nameplate',
-'Rubber',
-'Axle',
-'TractionRod',
-'MagneticBoltHolder',
-'Sander',
-'Nozzle',
-'RadiatingRib']
+# classes = [
+# 'OilPlugS',
+# 'BoltHead',
+# 'BoltNut',
+# 'WholeCotterPin',
+# 'Coupling',
+# 'LockingWire',
+# 'BrakeCylinder',
+# 'Boot',
+# 'WheelTread',
+# 'CotterPin',
+# 'BrakePad',
+# 'BrakeClamp',
+# 'TailCotterPin',
+# 'OilLevelMirror',
+# 'SingleLockingWire',
+# 'Mirror',
+# 'OilPlugB',
+# 'Putty',
+# 'Nameplate',
+# 'Rubber',
+# 'Axle',
+# 'TractionRod',
+# 'MagneticBoltHolder',
+# 'Sander',
+# 'Nozzle',
+# 'RadiatingRib']
+classes = ['BoltNut', 'BoltHead', 'LockingWire', 'Coupling', 'Putty', 'BrakePad',
+            'TailCotterPin', 'BrakeClamp', 'Axle', 'RadiatingRib', 'SingleLockingWire', 
+            'Mirror', 'OilLevelMirror', 'OilPlugB', 'CotterPin', 'MagneticBoltHolder', 
+            'OilPlugS', 'Nameplate', 'Sander', 'Nozzle', 'WholeCotterPin', 'Rubber', 
+            'WheelTread', 'BrakeCylinder', 'Boot', 'TractionRod', 'LockSpring',
+              'deformation', 'abnormal_Tape', 'RadiatingRid', 'crack_LockingWire','lost_OilPlugS']
 METAINFO = {
     'classes': tuple(classes + ["None"] * (num_classes - len(classes))),
     'palette': [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230), (106, 0, 228), (0, 60, 100), (0, 80, 100), (0, 0, 70), (0, 0, 192), (250, 170, 30), (100, 170, 30), (220, 220, 0), (175, 116, 175), (250, 0, 30),
@@ -405,5 +411,5 @@ log_processor = dict(type='LogProcessor', window_size=50, by_epoch=True)
 log_level = 'INFO'
 load_from = "checkpoints/yolov5_m-p6-v62_syncbn_fast_8xb16-300e_coco_20221027_230453-49564d58.pth"
 resume = False
-work_dir = "work_dirs/bjtds/fine_scan_380/e3_yolov5_m_P6_40e_20230507"
+work_dir = "work_dirs/bjtds/fine_scan_380/e3_yolov5_m_P6_40e_20230603"
 seed = 42

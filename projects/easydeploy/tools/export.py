@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument(
         '--model-only', action='store_true', help='Export model only')
     parser.add_argument(
-        '--work-dir', default='./work_dir', help='Path to save export model')
+        '--work-dir', default='./work_dirs', help='Path to save export model')
     parser.add_argument(
         '--img-size',
         nargs='+',
@@ -103,7 +103,7 @@ def main():
     # dry run
     deploy_model(fake_input)
 
-    save_onnx_path = os.path.join(args.work_dir, 'end2end.onnx')
+    save_onnx_path = os.path.join(args.work_dir, 'yolov5-380-20230605.onnx')
     # export onnx
     with BytesIO() as f:
 
